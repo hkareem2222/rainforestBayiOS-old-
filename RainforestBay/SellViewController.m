@@ -38,17 +38,34 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;
     listing.price = [f numberFromString:self.priceField.text];
-    [listing saveInBackground];
+    [listing setObject:[PFUser currentUser] forKey:@"createdBy"];
+    [listing saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            [self showAlerts:@"Item submitted for review" isSuccess:YES];
+        } else {
+            // There was a problem, check error.description
+            [self showAlerts:[error localizedDescription] isSuccess:NO];
+        }
+    }];
+}
 
-//    //Complete Alert
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Complete!" message:@"Item submitted for review." preferredStyle:UIAlertControllerStyleAlert];
+#pragma mark - Alerts
+
+-(void)showAlerts:(NSString *)message isSuccess:(BOOL)success {
+    //Complete Alert
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Complete!" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         //Unwind Segue
-        [self performSegueWithIdentifier:@"SellToProfile" sender:sender];
+        if (success) {
+            [self performSegueWithIdentifier:@"SellToProfile" sender:self];
+        }
     }];
     [alert addAction:dismissAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+#pragma mark - Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"segue");

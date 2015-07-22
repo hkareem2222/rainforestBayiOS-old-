@@ -493,11 +493,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xCy-K8-l1w">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xCy-K8-l1w">
                                 <rect key="frame" x="0.0" y="226" width="600" height="325"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LIstingID" id="2Be-Em-w0k">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingID" id="2Be-Em-w0k">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Be-Em-w0k" id="LdG-KX-MK0">
@@ -524,7 +524,17 @@
                             <constraint firstItem="8bD-m2-h1E" firstAttribute="top" secondItem="egN-Ey-jMp" secondAttribute="bottom" constant="8" id="b4k-6G-avU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jpz-t5-HAG"/>
+                    <navigationItem key="navigationItem" id="jpz-t5-HAG">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Pr6-fq-tYe">
+                            <connections>
+                                <action selector="onLogoutButtonPressed:" destination="fB5-R4-SVk" id="9T0-2c-2dQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="xCy-K8-l1w" id="Yzc-ng-f1w"/>
+                        <segue destination="QyG-I4-vWH" kind="showDetail" identifier="ProfileToAuth" id="Ifd-8v-pGr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZB-As-2ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -603,7 +613,7 @@
                                             <constraint firstAttribute="width" constant="100" id="qy0-jX-ySN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4N-bk-Ile">
                                         <rect key="frame" x="87" y="123" width="100" height="30"/>
@@ -612,7 +622,7 @@
                                             <constraint firstAttribute="height" constant="30" id="rzZ-bz-DXd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -645,6 +655,7 @@
                         <outlet property="authButton" destination="Uhg-Qn-IoK" id="U5W-wC-tg4"/>
                         <outlet property="passwordField" destination="A4N-bk-Ile" id="Np9-Vd-heq"/>
                         <outlet property="usernameField" destination="QrG-ty-3G6" id="Rn0-FK-gDs"/>
+                        <segue destination="oVm-j8-b9a" kind="showDetail" identifier="AuthToHome" id="mc0-66-o3M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeH-Yt-ThY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -780,4 +791,7 @@
         <image name="ProfileTab" width="35" height="35"/>
         <image name="testItem" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mc0-66-o3M"/>
+    </inferredMetricsTieBreakers>
 </document>

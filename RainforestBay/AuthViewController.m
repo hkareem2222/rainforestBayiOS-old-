@@ -21,6 +21,13 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser != nil) {
+        [self performSegueWithIdentifier:@"AuthToHome" sender:self];
+    }
+}
+
 #pragma mark - Buttons
 
 - (IBAction)onAuthButtonPressed:(UIButton *)button {
@@ -54,6 +61,7 @@
 
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
+            [self performSegueWithIdentifier:@"AuthToHome" sender:self];
             // Hooray! Let them use the app now.
         } else {
             NSString *errorString = [error userInfo][@"error"];
@@ -67,6 +75,7 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             // Do stuff after successful login.
+                                            [self performSegueWithIdentifier:@"AuthToHome" sender:self];
                                         } else {
                                             [self showAlerts:[error localizedDescription]];
                                         }
