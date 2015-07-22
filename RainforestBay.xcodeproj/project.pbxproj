@@ -184,10 +184,10 @@
 			children = (
 				852FC8F11B5B7AE9001B5AA2 /* AuthViewController.h */,
 				852FC8F21B5B7AE9001B5AA2 /* AuthViewController.m */,
-				852FC8E81B5B5B11001B5AA2 /* ProfileViewController.h */,
-				852FC8E91B5B5B11001B5AA2 /* ProfileViewController.m */,
 				853CA8C41B590A61003AC7F0 /* MarketplaceViewController.h */,
 				853CA8C51B590A61003AC7F0 /* MarketplaceViewController.m */,
+				852FC8E81B5B5B11001B5AA2 /* ProfileViewController.h */,
+				852FC8E91B5B5B11001B5AA2 /* ProfileViewController.m */,
 				85DF7CCF1B5914C800687350 /* SellViewController.h */,
 				85DF7CD01B5914C800687350 /* SellViewController.m */,
 			);

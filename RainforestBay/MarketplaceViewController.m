@@ -7,8 +7,10 @@
 //
 
 #import "MarketplaceViewController.h"
+#import <Parse/Parse.h>
+#import "Listing.h"
 
-@interface MarketplaceViewController ()
+@interface MarketplaceViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -17,11 +19,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-- (IBAction)onBuyButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"OnBuyButtonSegue" sender:sender];
+
+-(void)viewDidAppear:(BOOL)animated {
+    PFQuery *listingQuery = [Listing query];
+    //listingQuery whereKey isFeatured is YES
+    [listingQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //show featured listings
+        }
+    }];
 }
 
-- (IBAction)onSellButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"onSellButtonSegue" sender:sender];
+#pragma mark - TableView
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingID"];
+    return cell;
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+#pragma mark - Buy/Sell Buttons
+
+//- (IBAction)onBuyButtonPressed:(id)sender {
+//    [self performSegueWithIdentifier:@"OnBuyButtonSegue" sender:sender];
+//}
+//
+//- (IBAction)onSellButtonPressed:(id)sender {
+//    [self performSegueWithIdentifier:@"onSellButtonSegue" sender:sender];
+//}
 @end
