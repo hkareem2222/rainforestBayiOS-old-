@@ -13,6 +13,9 @@
 		851EF83D1B58C72B000E6075 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 851EF83C1B58C72B000E6075 /* Images.xcassets */; };
 		851EF8401B58C72B000E6075 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851EF83E1B58C72B000E6075 /* LaunchScreen.xib */; };
 		851EF84C1B58C72B000E6075 /* RainforestBayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 851EF84B1B58C72B000E6075 /* RainforestBayTests.m */; };
+		852FC8EA1B5B5B11001B5AA2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852FC8E91B5B5B11001B5AA2 /* ProfileViewController.m */; };
+		852FC8F01B5B6939001B5AA2 /* RBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852FC8EF1B5B6939001B5AA2 /* RBTabBarViewController.m */; };
+		852FC8F31B5B7AE9001B5AA2 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852FC8F21B5B7AE9001B5AA2 /* AuthViewController.m */; };
 		853CA8C61B590A61003AC7F0 /* MarketplaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853CA8C51B590A61003AC7F0 /* MarketplaceViewController.m */; };
 		85DF7CB41B59136500687350 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DF7CB21B59136500687350 /* Bolts.framework */; };
 		85DF7CB51B59136500687350 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DF7CB31B59136500687350 /* Parse.framework */; };
@@ -54,6 +57,12 @@
 		851EF8451B58C72B000E6075 /* RainforestBayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainforestBayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		851EF84A1B58C72B000E6075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		851EF84B1B58C72B000E6075 /* RainforestBayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainforestBayTests.m; sourceTree = "<group>"; };
+		852FC8E81B5B5B11001B5AA2 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		852FC8E91B5B5B11001B5AA2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		852FC8EE1B5B6939001B5AA2 /* RBTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTabBarViewController.h; sourceTree = "<group>"; };
+		852FC8EF1B5B6939001B5AA2 /* RBTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTabBarViewController.m; sourceTree = "<group>"; };
+		852FC8F11B5B7AE9001B5AA2 /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
+		852FC8F21B5B7AE9001B5AA2 /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		853CA8C41B590A61003AC7F0 /* MarketplaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketplaceViewController.h; sourceTree = "<group>"; };
 		853CA8C51B590A61003AC7F0 /* MarketplaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketplaceViewController.m; sourceTree = "<group>"; };
 		85DF7CB21B59136500687350 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -130,6 +139,8 @@
 		851EF82E1B58C72B000E6075 /* RainforestBay */ = {
 			isa = PBXGroup;
 			children = (
+				852FC8EE1B5B6939001B5AA2 /* RBTabBarViewController.h */,
+				852FC8EF1B5B6939001B5AA2 /* RBTabBarViewController.m */,
 				853CA8C71B590A6D003AC7F0 /* Controllers */,
 				851EF8331B58C72B000E6075 /* AppDelegate.h */,
 				851EF8341B58C72B000E6075 /* AppDelegate.m */,
@@ -171,6 +182,10 @@
 		853CA8C71B590A6D003AC7F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				852FC8F11B5B7AE9001B5AA2 /* AuthViewController.h */,
+				852FC8F21B5B7AE9001B5AA2 /* AuthViewController.m */,
+				852FC8E81B5B5B11001B5AA2 /* ProfileViewController.h */,
+				852FC8E91B5B5B11001B5AA2 /* ProfileViewController.m */,
 				853CA8C41B590A61003AC7F0 /* MarketplaceViewController.h */,
 				853CA8C51B590A61003AC7F0 /* MarketplaceViewController.m */,
 				85DF7CCF1B5914C800687350 /* SellViewController.h */,
@@ -309,10 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852FC8F31B5B7AE9001B5AA2 /* AuthViewController.m in Sources */,
+				852FC8F01B5B6939001B5AA2 /* RBTabBarViewController.m in Sources */,
 				851EF8351B58C72B000E6075 /* AppDelegate.m in Sources */,
 				85DF7CD41B59151700687350 /* Listing.m in Sources */,
 				853CA8C61B590A61003AC7F0 /* MarketplaceViewController.m in Sources */,
 				85DF7CD11B5914C800687350 /* SellViewController.m in Sources */,
+				852FC8EA1B5B5B11001B5AA2 /* ProfileViewController.m in Sources */,
 				851EF8321B58C72B000E6075 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

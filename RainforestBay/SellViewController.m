@@ -7,6 +7,7 @@
 //
 
 #import "SellViewController.h"
+#import "ProfileViewController.h"
 #import "Listing.h"
 
 @interface SellViewController ()
@@ -26,7 +27,10 @@
 
 }
 
+#pragma mark - Submit Button
+
 - (IBAction)onSubmitButtonPressed:(id)sender {
+    //Listing Creation
     Listing *listing = [Listing new];
     listing.headline = self.headlineField.text;
     listing.condition = self.conditionField.text;
@@ -35,5 +39,20 @@
     f.numberStyle = NSNumberFormatterDecimalStyle;
     listing.price = [f numberFromString:self.priceField.text];
     [listing saveInBackground];
+
+//    //Complete Alert
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Complete!" message:@"Item submitted for review." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        //Unwind Segue
+        [self performSegueWithIdentifier:@"SellToProfile" sender:sender];
+    }];
+    [alert addAction:dismissAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"segue");
+    UITabBarController *tabBar = segue.destinationViewController;
+    [tabBar setSelectedIndex:1];
 }
 @end
